@@ -1,12 +1,11 @@
 
 
 
-###  Anggota Kelompok CKA 👥 
+###  Anggota Kelompok Ls 👥 
 
 | NIM       | Nama                             | GitHub                       |
 | --------- | -------------------------------- |------------------------------|
 | 251511046 | Maheswara Farrel Surendra Tsaqif | farrel-de                            |
-| 251511049 | Muhammad Hilmi Farahat           | @muhammadhilmitif25-dev      |
 
 ---
 
@@ -66,7 +65,7 @@ cd nama-repo
 
 Berikut adalah panduan untuk melakukan kompilasi dan menjalankan program Notepad CKA melalui Command Prompt.
 
-### 1. Kompilasi (Menciptakan notepad_cka.exe)
+### 1. Kompilasi (Menciptakan notepad_Ls.exe)
 Kita menggunakan **GCC** untuk menggabungkan semua modul (`.c`) menjadi satu aplikasi utuh. Pastikan kamu berada di dalam folder `consoleapk` sebelum menjalankan perintah ini:
 
 ```cmd
@@ -78,7 +77,7 @@ Karena proyek ini sudah modular, pastikan file main.c, buffer.c, cursor.c, edito
 Setelah proses kompilasi berhasil (tidak ada error), jalankan aplikasi langsung dengan mengetik namanya:
 
 DOS
-notepad_cka.exe
+notepad_Ls.exe
 🔄 Workflow Pengembangan
 Agar setiap logika baru (seperti perbaikan backspace atau wrap kursor) bisa langsung dicoba, ikuti alur ini:
 
@@ -86,7 +85,7 @@ Simpan Perubahan: Tekan Ctrl + S pada VS Code untuk semua file yang diedit.
 
 Re-Compile: Jalankan kembali perintah gcc di atas. Jika muncul pesan error, cek kembali titik koma (;) atau typo pada kode.
 
-Running: Panggil notepad_cka.exe.
+Running: Panggil notepad_Ls.exe.
 
 
 

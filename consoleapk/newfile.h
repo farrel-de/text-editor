@@ -1,5 +1,7 @@
-#ifndef E2479305_CA1C_490F_BFC7_C3C5A8F546E2
-#define E2479305_CA1C_490F_BFC7_C3C5A8F546E2
+#ifndef NEWFILE_H
+#define NEWFILE_H
 
+void JalankanFiturNew();
+void HapusSemuaNode();
 
-#endif /* E2479305_CA1C_490F_BFC7_C3C5A8F546E2 */
+#endif

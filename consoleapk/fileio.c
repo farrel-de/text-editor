@@ -3,32 +3,19 @@
 #include "editor.h"
 
 void SimpanKeFile() {
-    FILE *fptr = fopen(namaFileDefault, "w");
+    FILE *fptr = fopen(namaFile, "w");
     if (fptr == NULL) {
-        printf(">> Gagal membuka file untuk disimpan!\n");
+        printf(">> Gagal membuka file!\n");
         return;
     }
-    fprintf(fptr, "%s", buffer);
-    fclose(fptr);
-    isDirty = false;
-    printf(">> Berhasil disimpan ke %s\n", namaFileDefault);
-}
 
-void SaveAs() {
-    printf("--- FITUR SAVE AS ---\n");
-    printf("Masukkan nama file baru (akhiri dengan .txt): ");
-    scanf("%s", namaFileDefault);
-    SimpanKeFile(); 
-}
-
-void BukaDariFile() {
-    FILE *fptr = fopen(namaFileDefault, "r");
-    if (fptr == NULL) {
-        printf(">> File %s tidak ditemukan!\n", namaFileDefault);
-        return;
+    Node *curr = head;
+    while (curr != NULL) {
+        fputc(curr->data, fptr);
+        curr = curr->next;
     }
-    fgets(buffer, sizeof(buffer), fptr);
+
     fclose(fptr);
-    isDirty = false;
-    printf(">> File %s berhasil dimuat ke layar.\n", namaFileDefault);
+    BelumSimpan = false;
+    printf(">> Berhasil disimpan ke %s\n", namaFile);
 }

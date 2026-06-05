@@ -4,28 +4,19 @@
 #include "fileio.h"
 #include "newfile.h"
 
-// Gunakan tipe data custom jika bool tidak terdefinisi (atau tetap pakai stdbool.h)
-// pakai ga ya
-#include <stdbool.h> 
 
-bool BelumSimpan = false;
-Node *head = NULL;
-Node *cursor = NULL;
-char *namaFile = NULL;
+bool BelumSimpan;
+Node *head;
+Node *cursor;
+char *namaFile;
 
-// Fungsi pengganti strcpy menggunakan Pointer Arithmetic
 void salinTeks(char *tujuan, const char *sumber) {
-    while (*sumber != '\0') { // Selama karakter sumber bukan null terminator
-        *tujuan = *sumber;    // Isi alamat yang ditunjuk 'tujuan' dengan isi 'sumber'
-        tujuan++;             // Geser alamat tujuan ke depan
-        sumber++;             // Geser alamat sumber ke depan
-    }
-    *tujuan = '\0';           // Beri tanda akhir string di akhir
+    while (*tujuan++ = *sumber++); 
 }
 
 int main() {
     // 1. Alokasi memori untuk pointer namaFile
-    namaFile = (char*)malloc(100 * sizeof(char));
+    namaFile = (char*)malloc(100);
     
     if (namaFile != NULL) {
         // 2. Mengganti strcpy(namaFile, "catatan.txt") dengan fungsi pointer manual
@@ -44,11 +35,16 @@ int main() {
             printf("%c", temp->data);
             temp = temp->next;
         }
-        
-        // printf %s tetap bekerja dengan pointer char*
-        printf("\nFile: %s | Status: %s\n", namaFile, BelumSimpan ? "Belum di save" : "Belum ada teks");
+
+
+        printf("\nFile: %s | Status: %s\n", namaFile, BelumSimpan ? "Belum di save" : "Belum ada teks/Aman");
         printf("---------------------------------\n");
-        printf("1. Isi Teks\n2. Save\n3. Baru\n4. Keluar\n");
+        printf("1. Isi Teks\n");
+        printf("2. Save File (Cepat)\n");
+        printf("3. Save As (Nama Baru)\n");
+        printf("4. Open File\n");
+        printf("5. Lembar Baru\n");
+        printf("6. Keluar\n");
         printf("Pilih: ");
         
         if (scanf("%d", &menu) != 1) break;
@@ -70,14 +66,25 @@ int main() {
                     }
                 } 
                 else {
-                    SisipTeks(inputChar); 
-                    BelumSimpan = true; 
+                    SisipTeks(inputChar);  
                 }
             }
         } 
-        else if (menu == 2) SimpanKeFile();
-        else if (menu == 3) JalankanFiturNew();
-        else if (menu == 4) break;
+        else if (menu == 2) {
+            SimpanKeFile();
+        }
+        else if (menu == 3) {
+            SaveAs();        
+        }
+        else if (menu == 4) {
+            BukaDariFile();  
+        }
+        else if (menu == 5) {
+            JalankanFiturNew();
+        }
+        else if (menu == 6) {
+            break;
+        }
     }
 
     HapusSemuaNode(); 
